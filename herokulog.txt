@@ -1,0 +1,16 @@
+remote: Compressing source files... done.        
+remote: Building source:        
+remote: 
+remote: -----> Python app detected        
+remote: -----> Installing requirements with pip        
+remote:        Double requirement given: flask==0.12.2 (from -r /tmp/build_4500f3326705ff233fcca6cd3db60421/requirements.txt (line 58)) (already in Flask==0.10.1 (from -r /tmp/build_4500f3326705ff233fcca6cd3db60421/requirements.txt (line 13)), name='flask')        
+remote:  !     Push rejected, failed to compile Python app.        
+remote: 
+remote:  !     Push failed        
+remote: Verifying deploy...
+remote: 
+remote: !	Push rejected to vis-stage.        
+remote: 
+To https://git.heroku.com/vis-stage.git
+ ! [remote rejected] master -> master (pre-receive hook declined)
+error: failed to push some refs to 'https://git.heroku.com/vis-stage.git'

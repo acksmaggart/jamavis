@@ -1,0 +1,11 @@
+*.pyc
+.idea/
+
+.DS_Store
+
+visEnv/lib/python2.7/site-packages/*
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -1,0 +1,52 @@
+html {
+    font-family: sans-serif;
+}
+
+div.viewContainer {
+    margin-left: 30px;
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+
+g.positive:hover, g.negative:hover{
+    opacity: .3;
+}
+
+
+.d3-tip {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 10px;
+}
+table {
+    color: white;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+th {
+    padding: 5px 20px;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    text-align: left;
+    padding: 0 20px;
+}
+
+text {
+    shape-rendering: crispEdges;
+}
+
+.tooltip-details {
+    color: white;
+    font-size: 0.8rem;
+    margin-left: 20px;
+}
