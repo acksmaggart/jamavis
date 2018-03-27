@@ -9,3 +9,6 @@ visEnv/lib/python2.7/site-packages/*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Key files
+*.pem
