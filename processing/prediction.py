@@ -17,6 +17,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import eHostess.PyConTextInterface.PyConText as PyConText
 import eHostess.PyConTextInterface.SentenceSplitters.SpacySplitter as SpacySplitter
 
+from BestModel import tokenize
+from SVM_TFIDF_Only import tokenizer
 
 def tokenizer(text):
     tokens = [word for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]

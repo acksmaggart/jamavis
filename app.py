@@ -12,14 +12,17 @@ from worker import conn
 
 from flask_cors import CORS
 
+# This is necessary for the SVM model vectorizer to be unpickled correctly.
+import Tokenizer
 
-def tokenizer(text):
-    tokens = [word for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
-    filtered_tokens = [token for token in tokens if re.search('(^[a-zA-Z]+$)', token)]
-    a = []
-    for i in filtered_tokens:
-        a.append(WordNetLemmatizer().lemmatize(i, 'v'))
-    return a
+
+# def tokenizer(text):
+#     tokens = [word for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
+#     filtered_tokens = [token for token in tokens if re.search('(^[a-zA-Z]+$)', token)]
+#     a = []
+#     for i in filtered_tokens:
+#         a.append(WordNetLemmatizer().lemmatize(i, 'v'))
+#     return a
 
 from processing.prediction import Predictor
 
