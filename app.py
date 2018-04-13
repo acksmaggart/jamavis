@@ -81,7 +81,8 @@ def predict():
     text = body['text']
     dynamic = None
     if modelName in svmModels:
-        prediction, time = predictor.getSVMModelPredictionAndTime(modelName, text)
+        prediction, time, explanation = predictor.getSVMModelPredictionAndTime(modelName, text)
+        dynamic = explanation
     elif modelName in etModels:
         prediction, time = predictor.getETModelPredictionAndTime(modelName, text)
     elif modelName in nnModels:

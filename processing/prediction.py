@@ -20,6 +20,8 @@ import eHostess.PyConTextInterface.SentenceSplitters.SpacySplitter as SpacySplit
 from BestModel import tokenize
 from SVM_TFIDF_Only import tokenizer
 
+from SVMExplanation import SvmExplanation
+
 def tokenizer(text):
     tokens = [word for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
     filtered_tokens = [token for token in tokens if re.search('(^[a-zA-Z]+$)', token)]
@@ -45,6 +47,11 @@ class Predictor(object):
             'cnn': 'CNNNotDownsampledRedo.h5',
             'cnn-ds': 'CNNFinal.h5'
         }
+
+        self.svmExplanation = SvmExplanation(
+            path_to_full_svm_model=os.path.join(self.SCRIPT_PATH, self.RELATIVE_PATH + self.MODEL_PATH_DICT['svm']),
+            path_to_ds_svm_model=os.path.join(self.SCRIPT_PATH, self.RELATIVE_PATH + self.MODEL_PATH_DICT['svm-ds'])
+        )
 
         etDSVocabPath = os.path.join(self.SCRIPT_PATH, self.RELATIVE_PATH + "ExtraTreesVocabularyEnglishStopOnlyFinal.pkl")
         etVocabPath = os.path.join(self.SCRIPT_PATH, self.RELATIVE_PATH + "ExtraTreesVocabularyNotDownsampledEnglishStopOnlyFinal.pkl")
@@ -76,6 +83,7 @@ class Predictor(object):
             self.model_dict[modelName] = {}
             self.model_dict[modelName]['model'] = model
             self.model_dict[modelName]['tokenizer'] = tokenizer
+
 
 
     def getModelPath(self, modelName):
@@ -111,7 +119,13 @@ class Predictor(object):
         elapsed = end - start
         #time = self.formatTimeMethod(elapsed)
 
-        return prediction, elapsed
+        explanation = None
+        if (modelName == "svm"):
+            explanation = self.svmExplanation.explainFullSVM(text)
+        else:
+            explanation = self.svmExplanation.explainDSSVM(text)
+
+        return prediction, elapsed, explanation
 
     def getETModelPredictionAndTime(self, modelName, text):
         vocab = None
