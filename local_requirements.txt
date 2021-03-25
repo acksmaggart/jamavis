@@ -35,7 +35,7 @@ plac==0.9.6
 preshed==1.0.0
 protobuf==3.5.1
 pyConTextNLP==0.6.2.0
-PyYAML==3.12
+PyYAML==5.4
 redis==2.10.6
 regex==2017.4.5
 requests==2.18.4
